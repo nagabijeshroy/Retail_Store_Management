@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CpsServiceInterface" targetNamespace="http://service.nrscm.com/" xmlns:ns1="http://service.nrscm.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" >
+<!-- Types for WSDL -->
+  	<wsdl:types>
+			<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:is="http://service.nrscm.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.nrscm.com/">
+			<!-- Simple Types -->
+			<xs:include schemaLocation="common.xsd"/>
+			</xs:schema>
+  	
+	</wsdl:types>
+  
+  <!--  WSDL Messages -->
+  
+  <wsdl:message name="getCardDetailsRequestMessage">
+		<wsdl:part type="ns1:GetCardDetailsRequest" name="getCardDetailsRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="getCardDetailsResponseMessage">
+		<wsdl:part type="ns1:GetCardDetailsResponse" name="getCardDetailsResponseMessage" />
+	</wsdl:message>
+  <wsdl:message name="updateCardDetailsRequestMessage">
+		<wsdl:part type="ns1:UpdateCardDetailsRequest" name="updateCardDetailsRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="updateCardDetailsResponseMessage">
+		<wsdl:part type="ns1:UpdateCardDetailsResponse" name="updateCardDetailsResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="getExistingBillRequestMessage">
+		<wsdl:part type="ns1:GetExistingBillRequest" name="getExistingBillRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="getExistingBillResponseMessage">
+		<wsdl:part type="ns1:GetExistingBillResponse" name="getExistingBillResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="createNewBillRequestMessage">
+		<wsdl:part type="ns1:CreateNewBillRequest" name="createNewBillRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="createNewBillResponseMessage">
+		<wsdl:part type="ns1:CreateNewBillResponse" name="createNewBillResponseMessage" />
+	</wsdl:message>
+  <!-- WSDL Operations -->
+  <wsdl:portType name="CpsServiceInterface">
+			<wsdl:operation name="getCardDetails">
+			  <wsdl:input name="getCardDetailsRequestMessage" message="ns1:getCardDetailsRequestMessage" />
+			  <wsdl:output name="getCardDetailsResponseMessage" message="ns1:getCardDetailsResponseMessage" />
+			</wsdl:operation> 
+			<wsdl:operation name="updateCardDetails">
+			  <wsdl:input name="updateCardDetailsRequestMessage" message="ns1:updateCardDetailsRequestMessage" />
+			  <wsdl:output name="updateCardDetailsResponseMessage" message="ns1:updateCardDetailsResponseMessage" />
+			</wsdl:operation> 
+			<wsdl:operation name="getExistingBill">
+			  <wsdl:input name="getExistingBillRequestMessage" message="ns1:getExistingBillRequestMessage" />
+			  <wsdl:output name="getExistingBillResponseMessage" message="ns1:getExistingBillResponseMessage" />
+			</wsdl:operation> 
+		    <wsdl:operation name="createNewBill">
+			  <wsdl:input name="createNewBillRequestMessage" message="ns1:createNewBillRequestMessage" />
+			  <wsdl:output name="createNewBillResponseMessage" message="ns1:createNewBillResponseMessage" />
+			</wsdl:operation> 
+  </wsdl:portType>
+  
+  
+  <wsdl:binding name="CpsServiceSoapBinding" type="ns1:CpsServiceInterface">
+			<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+			<wsdl:operation name="getCardDetails">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="getCardDetailsRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="getCardDetailsResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			<wsdl:operation name="updateCardDetails">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="updateCardDetailsRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="updateCardDetailsResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			<wsdl:operation name="getExistingBill">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="getExistingBillRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="getExistingBillResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			<wsdl:operation name="createNewBill">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="createNewBillRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="createNewBillResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+  </wsdl:binding>
+  
+  <wsdl:service name="CpsServiceClient">
+    <wsdl:port binding="ns1:CpsServiceSoapBinding" name="CpsServicePort">
+    	<soap:address location="http://localhost:8083/nrscmService/CpsServiceClient" />
+      <!-- <soap:address location="http://localhost:8083/NRSCMWS/1.0/nrscm/cps" /> -->
+    </wsdl:port>
+  </wsdl:service>
+    
+</wsdl:definitions>

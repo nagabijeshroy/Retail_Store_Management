@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="PCServiceInterface" targetNamespace="http://service.nrscm.com/" xmlns:ns1="http://service.nrscm.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" >
+<!-- Types for WSDL -->
+  	<wsdl:types>
+			<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:is="http://service.nrscm.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.nrscm.com/">
+			<!-- Simple Types -->
+			<xs:include schemaLocation="common.xsd"/>
+			</xs:schema>
+  	
+	</wsdl:types>
+  
+  <!--  WSDL Messages -->
+  
+  <wsdl:message name="addClearanceRequestMessage">
+		<wsdl:part type="ns1:AddClearanceRequest" name="addClearanceRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="addClearanceResponseMessage">
+		<wsdl:part type="ns1:AddClearanceResponse" name="addClearanceResponseMessage" />
+	</wsdl:message>
+	
+	<!-- <wsdl:message name="searchClearanceItemRequestMessage">
+		<wsdl:part type="ns1:SearchClearanceItemRequest" name="searchClearanceItemRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="searchClearanceItemResponseMessage">
+		<wsdl:part type="ns1:SearchClearanceItemResponse" name="searchClearanceItemResponseMessage" />
+	</wsdl:message> -->
+	
+  <!-- <wsdl:message name="getClearanceRequestMessage">
+		<wsdl:part type="ns1:GetClearanceRequest" name="getClearanceRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="getClearanceResponseMessage">
+		<wsdl:part type="ns1:GetClearanceResponse" name="getClearanceResponseMessage" />
+	</wsdl:message> -->
+	
+	<wsdl:message name="updateClearanceRequestMessage">
+		<wsdl:part type="ns1:UpdateClearanceRequest" name="updateClearanceRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="updateClearanceResponseMessage">
+		<wsdl:part type="ns1:UpdateClearanceResponse" name="updateClearanceResponseMessage" />
+	</wsdl:message>
+	
+	<wsdl:message name="removeClearanceRequestMessage">
+		<wsdl:part type="ns1:RemoveClearanceRequest" name="removeClearanceRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="removeClearanceResponseMessage">
+		<wsdl:part type="ns1:RemoveClearanceResponse" name="removeClearanceResponseMessage" />
+	</wsdl:message>	
+	
+	
+   <wsdl:message name="addPromotionRequestMessage">
+		<wsdl:part type="ns1:AddPromotionRequest" name="addPromotionRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="addPromotionResponseMessage">
+		<wsdl:part type="ns1:AddPromotionResponse" name="addPromotionResponseMessage" />
+	</wsdl:message>
+	
+	<wsdl:message name="searchPromotionItemRequestMessage">
+		<wsdl:part type="ns1:SearchPromotionItemRequest" name="searchPromotionItemRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="searchPromotionItemResponseMessage">
+		<wsdl:part type="ns1:SearchPromotionItemResponse" name="searchPromotionItemResponseMessage" />
+	</wsdl:message>
+		
+   <!-- <wsdl:message name="getPromotionRequestMessage">
+		<wsdl:part type="ns1:GetPromotionRequest" name="getPromotionRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="getPromotionResponseMessage">
+		<wsdl:part type="ns1:GetPromotionResponse" name="getPromotionResponseMessage" />
+	</wsdl:message>	 -->
+	
+   <wsdl:message name="updatePromotionRequestMessage">
+		<wsdl:part type="ns1:UpdatePromotionRequest" name="updatePromotionRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="updatePromotionResponseMessage">
+		<wsdl:part type="ns1:UpdatePromotionResponse" name="updatePromotionResponseMessage" />
+	</wsdl:message>   
+	
+   <wsdl:message name="removePromotionRequestMessage">
+		<wsdl:part type="ns1:RemovePromotionRequest" name="removePromotionRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="removePromotionResponseMessage">
+		<wsdl:part type="ns1:RemovePromotionResponse" name="removePromotionResponseMessage" />
+	</wsdl:message>
+	
+	<wsdl:message name="getPromotionForItemRequestMessage">
+		<wsdl:part type="ns1:GetPromotionForItemRequest" name="getPromotionForItemRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="getPromotionForItemResponseMessage">
+		<wsdl:part type="ns1:GetPromotionForItemResponse" name="getPromotionForItemResponseMessage" />
+	</wsdl:message>
+	
+	<wsdl:message name="getClearanceForItemRequestMessage">
+		<wsdl:part type="ns1:GetClearanceForItemRequest" name="getClearanceForItemRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="getClearanceForItemResponseMessage">
+		<wsdl:part type="ns1:GetClearanceForItemResponse" name="getClearancenForItemResponseMessage" />
+	</wsdl:message>
+	
+	
+  
+  <!-- WSDL Operations -->
+  <wsdl:portType name="PCServiceInterface">
+			
+			<wsdl:operation name="addClearance">
+			  <wsdl:input message="ns1:addClearanceRequestMessage" name="addClearanceRequestMessage"/>
+			  <wsdl:output message="ns1:addClearanceResponseMessage" name="addClearanceResponseMessage"/>
+			</wsdl:operation> 
+			
+			<!-- <wsdl:operation name="searchClearanceItem">
+			  <wsdl:input message="ns1:searchClearanceItemRequestMessage" name="searchClearanceItemRequestMessage"/>
+			  <wsdl:output message="ns1:searchClearanceItemResponseMessage" name="searchClearanceItemResponseMessage"/>
+			</wsdl:operation> -->
+    			
+  			<!-- <wsdl:operation name="getClearance">
+			  <wsdl:input message="ns1:getClearanceRequestMessage" name="getClearanceRequestMessage"/>
+			  <wsdl:output message="ns1:getClearanceResponseMessage" name="getClearanceResponseMessage"/>
+			</wsdl:operation>  -->
+			
+			<wsdl:operation name="updateClearance">
+			  <wsdl:input message="ns1:updateClearanceRequestMessage" name="updateClearanceRequestMessage"/>
+			  <wsdl:output message="ns1:updateClearanceResponseMessage" name="updateClearanceResponseMessage"/>
+			</wsdl:operation>
+			
+			<wsdl:operation name="removeClearance">
+			  <wsdl:input message="ns1:removeClearanceRequestMessage" name="removeClearanceRequestMessage"/>
+			  <wsdl:output message="ns1:removeClearanceResponseMessage" name="removeClearanceResponseMessage"/>
+			</wsdl:operation>
+    
+  			<wsdl:operation name="addPromotion">
+			  <wsdl:input message="ns1:addPromotionRequestMessage" name="addPromotionRequestMessage"/>
+			  <wsdl:output message="ns1:addPromotionResponseMessage" name="addPromotionResponseMessage"/>
+			</wsdl:operation> 
+			
+			<wsdl:operation name="searchPromotionItem">
+			  <wsdl:input message="ns1:searchPromotionItemRequestMessage" name="searchPromotionItemRequestMessage"/>
+			  <wsdl:output message="ns1:searchPromotionItemResponseMessage" name="searchPromotionItemResponseMessage"/>
+			</wsdl:operation>
+    
+  			<!-- <wsdl:operation name="getPromotion">
+			  <wsdl:input message="ns1:getPromotionRequestMessage" name="getPromotionRequestMessage"/>
+			  <wsdl:output message="ns1:getPromotionResponseMessage" name="getPromotionResponseMessage"/>
+			</wsdl:operation>     --> 			 
+    
+  			<wsdl:operation name="updatePromotion">
+			  <wsdl:input message="ns1:updatePromotionRequestMessage" name="updatePromotionRequestMessage"/>
+			  <wsdl:output message="ns1:updatePromotionResponseMessage" name="updatePromotionResponseMessage"/>
+			</wsdl:operation>     			 
+   
+  			<wsdl:operation name="removePromotion">
+			  <wsdl:input message="ns1:removePromotionRequestMessage" name="removePromotionRequestMessage"/>
+			  <wsdl:output message="ns1:removePromotionResponseMessage" name="removePromotionResponseMessage"/>
+			</wsdl:operation>
+			
+			<wsdl:operation name="getPromotionForItem">
+			  <wsdl:input message="ns1:getPromotionForItemRequestMessage" name="getPromotionForItemRequestMessage"/>
+			  <wsdl:output message="ns1:getPromotionForItemResponseMessage" name="getPromotionForItemResponseMessage"/>
+			</wsdl:operation> 
+			
+			<wsdl:operation name="getClearanceForItem">
+			  <wsdl:input message="ns1:getClearanceForItemRequestMessage" name="getClearanceForItemRequestMessage"/>
+			  <wsdl:output message="ns1:getClearanceForItemResponseMessage" name="getClearanceForItemResponseMessage"/>
+			</wsdl:operation> 
+   
+ 			
+  </wsdl:portType>  
+	
+  
+  <wsdl:binding name="PCServiceSoapBinding" type="ns1:PCServiceInterface">
+			<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+			
+			<wsdl:operation name="addClearance">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="addClearanceRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="addClearanceResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+			<!-- <wsdl:operation name="searchClearanceItem">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="searchClearanceItemRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="searchClearanceItemResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation> -->
+			
+			<!-- <wsdl:operation name="getClearance">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="getClearanceRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="getClearanceResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation> -->
+			
+			<wsdl:operation name="updateClearance">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="updateClearanceRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="updateClearanceResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+			<wsdl:operation name="removeClearance">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="removeClearanceRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="removeClearanceResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+			<wsdl:operation name="addPromotion">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="addPromotionRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="addPromotionResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+			<wsdl:operation name="searchPromotionItem">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="searchPromotionItemRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="searchPromotionItemResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+			<!-- <wsdl:operation name="getPromotion">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="getPromotionRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="getPromotionResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			 -->
+			
+			
+			<wsdl:operation name="updatePromotion">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="updatePromotionRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="updatePromotionResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+			
+			
+			<wsdl:operation name="removePromotion">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="removePromotionRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="removePromotionResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+			<wsdl:operation name="getPromotionForItem">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="getPromotionForItemRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="getPromotionForItemResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+			<wsdl:operation name="getClearanceForItem">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="getClearanceForItemRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="getClearanceForItemResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+					
+			
+  </wsdl:binding>
+  
+  <wsdl:service name="PCServiceClient">
+    <wsdl:port binding="ns1:PCServiceSoapBinding" name="PCServicePort">
+    	<soap:address location="http://localhost:8083/nrscmService/PCServiceClient" />
+      <!-- <soap:address location="http://localhost:8083/NRSCMWS/1.0/nrscm/item" /> -->
+    </wsdl:port>
+  </wsdl:service>
+    
+</wsdl:definitions>

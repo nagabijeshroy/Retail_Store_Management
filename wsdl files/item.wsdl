@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ItemServiceInterface" targetNamespace="http://service.nrscm.com/" xmlns:ns1="http://service.nrscm.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" >
+<!-- Types for WSDL -->
+  	<wsdl:types>
+			<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:is="http://service.nrscm.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.nrscm.com/">
+			<!-- Simple Types -->
+			<xs:include schemaLocation="common.xsd"/>
+			</xs:schema>
+  	
+	</wsdl:types>
+  
+  <!--  WSDL Messages -->
+  
+  	<wsdl:message name="createItemRequestMessage">
+		<wsdl:part type="ns1:CreateItemRequest" name="createItemRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="createItemResponseMessage">
+		<wsdl:part type="ns1:CreateItemResponse" name="createItemResponseMessage" />
+	</wsdl:message>
+	
+	<wsdl:message name="getItemRequestMessage">
+		<wsdl:part type="ns1:GetItemRequest" name="getItemRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="getItemResponseMessage">
+		<wsdl:part type="ns1:GetItemResponse" name="getItemResponseMessage" />
+	</wsdl:message>
+	
+	<wsdl:message name="getItemsRequestMessage">
+		<wsdl:part type="ns1:GetItemsRequest" name="getItemsRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="getItemsResponseMessage">
+		<wsdl:part type="ns1:GetItemsResponse" name="getItemsResponseMessage" />
+	</wsdl:message>
+	
+	<wsdl:message name="updateItemRequestMessage">
+		<wsdl:part type="ns1:UpdateItemRequest" name="updateItemRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="updateItemResponseMessage">
+		<wsdl:part type="ns1:UpdateItemResponse" name="updateItemResponseMessage" />
+	</wsdl:message>
+	
+	<wsdl:message name="deleteItemRequestMessage">
+		<wsdl:part type="ns1:DeleteItemRequest" name="deleteItemRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="deleteItemResponseMessage">
+		<wsdl:part type="ns1:DeleteItemResponse" name="deleteItemResponseMessage" />
+	</wsdl:message>
+
+  <!-- WSDL Operations -->
+  <wsdl:portType name="ItemServiceInterface">
+		<wsdl:operation name="createItem">
+		  <wsdl:input name="createItemRequestMessage" message="ns1:createItemRequestMessage" />
+		  <wsdl:output name="createItemResponseMessage" message="ns1:createItemResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="getItem">
+		  <wsdl:input name="getItemRequestMessage" message="ns1:getItemRequestMessage" />
+		  <wsdl:output name="getItemResponseMessage" message="ns1:getItemResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="getItems">
+		  <wsdl:input name="getItemsRequestMessage" message="ns1:getItemsRequestMessage" />
+		  <wsdl:output name="getItemsResponseMessage" message="ns1:getItemsResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="updateItem">
+		  <wsdl:input name="updateItemRequestMessage" message="ns1:updateItemRequestMessage" />
+		  <wsdl:output name="updateItemResponseMessage" message="ns1:updateItemResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="deleteItem">
+		  <wsdl:input name="deleteItemRequestMessage" message="ns1:deleteItemRequestMessage" />
+		  <wsdl:output name="deleteItemResponseMessage" message="ns1:deleteItemResponseMessage" />
+		</wsdl:operation>
+  </wsdl:portType>
+  
+  <wsdl:binding name="ItemServiceSoapBinding" type="ns1:ItemServiceInterface">
+		<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />	
+			<wsdl:operation name="createItem">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="createItemRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="createItemResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+			<wsdl:operation name="getItem">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="getItemRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="getItemResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+			<wsdl:operation name="getItems">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="getItemsRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="getItemsResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+			<wsdl:operation name="updateItem">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="updateItemRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="updateItemResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+			<wsdl:operation name="deleteItem">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="deleteItemRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="deleteItemResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+  </wsdl:binding>
+  
+  <wsdl:service name="ItemServiceClient">
+    <wsdl:port binding="ns1:ItemServiceSoapBinding" name="ItemServicePort">
+    	<soap:address location="http://localhost:8083/nrscmService/ItemServiceClient" />
+      <!-- <soap:address location="http://localhost:8083/NRSCMWS/1.0/nrscm/item" /> -->
+    </wsdl:port>
+  </wsdl:service>
+    
+</wsdl:definitions>

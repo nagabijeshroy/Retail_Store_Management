@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="POSServiceInterface" targetNamespace="http://service.nrscm.com/" xmlns:ns1="http://service.nrscm.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" >
+<!-- Types for WSDL -->
+  	<wsdl:types>
+			<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:is="http://service.nrscm.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.nrscm.com/">
+			<!-- Simple Types -->
+			<xs:include schemaLocation="common.xsd"/>
+			</xs:schema>
+  	
+	</wsdl:types>
+  
+  <!--  WSDL Messages -->
+  
+  <wsdl:message name="createBillRequestMessage">
+		<wsdl:part type="ns1:CreateBillRequest" name="createBillRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="createBillResponseMessage">
+		<wsdl:part type="ns1:CreateBillResponse" name="createBillResponseMessage" />
+	</wsdl:message>
+	
+  <wsdl:message name="createCustomerCardRequestMessage">
+		<wsdl:part type="ns1:CreateCustomerCardRequest" name="createCustomerCardRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="createCustomerCardResponseMessage">
+		<wsdl:part type="ns1:CreateCustomerCardResponse" name="createCustomerCardResponseMessage" />
+	</wsdl:message>
+	
+ <wsdl:message name="updateCustomerCardRequestMessage">
+		<wsdl:part type="ns1:UpdateCustomerCardRequest" name="updateCustomerCardRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="updateCustomerCardResponseMessage">
+		<wsdl:part type="ns1:UpdateCustomerCardResponse" name="updateCustomerCardResponseMessage" />
+	</wsdl:message>
+	
+	<wsdl:message name="searchBillItemRequestMessage">
+		<wsdl:part type="ns1:SearchBillItemRequest" name="searchBillItemRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="searchBillItemResponseMessage">
+		<wsdl:part type="ns1:SearchBillItemResponse" name="searchBillItemResponseMessage" />
+	</wsdl:message>
+   
+  <!-- WSDL Operations -->
+  <wsdl:portType name="POSServiceInterface">
+  
+			<wsdl:operation name="createBill">
+			  <wsdl:input name="createBillRequestMessage" message="ns1:createBillRequestMessage" />
+			  <wsdl:output name="createBillResponseMessage" message="ns1:createBillResponseMessage" />
+			</wsdl:operation> 
+			
+			<wsdl:operation name="createCustomerCard">
+			  <wsdl:input name="createCustomerCardRequestMessage" message="ns1:createCustomerCardRequestMessage" />
+			  <wsdl:output name="createCustomerCardResponseMessage" message="ns1:createCustomerCardResponseMessage" />
+			</wsdl:operation> 
+			
+			<wsdl:operation name="updateCustomerCard">
+			  <wsdl:input name="updateCustomerCardRequestMessage" message="ns1:updateCustomerCardRequestMessage" />
+			  <wsdl:output name="updateCustomerCardResponseMessage" message="ns1:updateCustomerCardResponseMessage" />
+			</wsdl:operation> 
+			
+			<wsdl:operation name="searchBillItem">
+			  <wsdl:input name="searchBillItemRequestMessage" message="ns1:searchBillItemRequestMessage" />
+			  <wsdl:output name="searchBillItemResponseMessage" message="ns1:searchBillItemResponseMessage" />
+			</wsdl:operation> 
+			
+  </wsdl:portType>
+  
+  
+  <wsdl:binding name="POSServiceSoapBinding" type="ns1:POSServiceInterface">
+			<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+			
+			<wsdl:operation name="createBill">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="createBillRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="createBillResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+			<wsdl:operation name="createCustomerCard">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="createCustomerCardRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="createCustomerCardResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+			<wsdl:operation name="updateCustomerCard">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="updateCustomerCardRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="updateCustomerCardResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+				<wsdl:operation name="searchBillItem">
+				<soap:operation soapAction="" style="rpc" />
+				<wsdl:input name="searchBillItemRequestMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:input>
+				<wsdl:output name="searchBillItemResponseMessage">
+					<soap:body namespace="http://service.nrscm.com/" use="literal" />
+				</wsdl:output>
+			</wsdl:operation>
+			
+			
+  </wsdl:binding>
+  
+  <wsdl:service name="POSServiceClient">
+    <wsdl:port binding="ns1:POSServiceSoapBinding" name="POSServicePort">
+    	<soap:address location="http://localhost:8083/nrscmService/POSServiceClient" />
+      <!-- <soap:address location="http://localhost:8083/NRSCMWS/1.0/nrscm/item" /> -->
+    </wsdl:port>
+  </wsdl:service>
+    
+</wsdl:definitions>
+

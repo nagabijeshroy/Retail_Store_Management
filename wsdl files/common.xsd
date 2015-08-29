@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<xs:schema targetNamespace="http://service.nrscm.com/" xmlns:cs="http://service.nrscm.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" elementFormDefault="qualified" version="1.3">
+
+	<!-- RAJIV BEGINS -->
+			<xs:simpleType name="StoreId">
+				<xs:restriction base="xs:int">
+				</xs:restriction>
+		    </xs:simpleType>
+		    
+			<xs:simpleType name="ItemId">
+				<xs:restriction base="xs:int">
+				</xs:restriction>
+		    </xs:simpleType>
+			  
+			<xs:simpleType name="ItemName">
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+		    </xs:simpleType> 
+		    
+		    <xs:simpleType name="ItemPricePerUnit">
+				<xs:restriction base="xs:decimal">
+				</xs:restriction>
+		    </xs:simpleType>
+		    
+		    <xs:simpleType name="ItemQuantity">
+				<xs:restriction base="xs:decimal">
+				</xs:restriction>
+		    </xs:simpleType>
+				
+			<xs:simpleType name="EmployeeId">
+				<xs:restriction base="xs:int">
+				</xs:restriction>
+		    </xs:simpleType>
+			  
+			<xs:simpleType name="EmployeeName">
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+		    </xs:simpleType>
+		    
+		    <xs:simpleType name="DepartmentId">
+				<xs:restriction base="xs:int">
+				</xs:restriction>
+		    </xs:simpleType>
+			  
+			<xs:simpleType name="DepartmentName">
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+		    </xs:simpleType>
+		    
+		    <xs:simpleType name="Username">
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+		    </xs:simpleType>
+			  
+			<xs:simpleType name="Password">
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+		    </xs:simpleType>
+			
+			<xs:complexType name="Employee">
+				<xs:sequence>
+				  <xs:element minOccurs="0" name="Eid" type="cs:EmployeeId"/>
+				  <!-- <xs:element minOccurs="0" name="id" type="cs:EmployeeId"/> -->
+				  <xs:element minOccurs="0" name="name" type="cs:EmployeeName"/>
+				  <xs:element minOccurs="0" name="storeId" type="cs:StoreId"/>
+				  <xs:element minOccurs="0" name="employeeAddress" type="cs:EmployeeAddress"/>
+				  <xs:element minOccurs="0" name="employeeDesgnation" type="cs:EmployeeDesignation"/>
+				  <xs:element minOccurs="0" name="isDepartmentHead" type="cs:IsDepartmentHead"/>
+				  <xs:element minOccurs="0" name="isStoreHead" type="cs:IsStoretHead"/>
+				  <xs:element minOccurs="0" name="username" type="cs:Username"/>
+				  <xs:element minOccurs="0" name="password" type="cs:Password"/>
+				  <!-- <xs:element minOccurs="0" name="department" type="cs:Department"/> -->
+				</xs:sequence>
+			</xs:complexType> 
+			
+			
+			<xs:complexType name="Department">
+				<xs:sequence>
+				  <xs:element minOccurs="0" name="id" type="cs:DepartmentId"/>
+				  <xs:element minOccurs="0" name="name" type="cs:DepartmentName"/>
+				  <xs:element minOccurs="0" name="storeId" type="cs:StoreId"/>
+				  <xs:element minOccurs="0" name="departmentHead" type="cs:DepartmentHead"/>
+				  <xs:element minOccurs="0" name="Eid" type="cs:EmployeeId"/>
+				  <!-- <xs:element minOccurs="0" name="departmentHead" type="cs:Employee"/> -->
+				</xs:sequence>
+			</xs:complexType>
+			
+			<!-- <xs:complexType name="LoginDetails">
+				<xs:sequence>
+				  <xs:element minOccurs="0" name="username" type="cs:Username"/>
+				  <xs:element minOccurs="0" name="password" type="cs:DepartmentName"/>
+				  <xs:element minOccurs="0" name="storeId" type="cs:StoreId"/>
+				</xs:sequence>
+			</xs:complexType> -->
+			
+			<xs:complexType name="Item">
+				<xs:sequence>
+				  <xs:element minOccurs="0" name="id" type="cs:ItemId"/>
+				  <xs:element minOccurs="0" name="name" type="cs:ItemName"/>
+				  <xs:element minOccurs="0" name="pricePerUnit" type="cs:ItemPricePerUnit"/>
+				  <xs:element minOccurs="0" name="quantity" type="cs:ItemQuantity"/>
+				  <xs:element minOccurs="0" name="department" type="cs:Department"/>
+				  <xs:element minOccurs="0" name="lastUpdatedBy" type="cs:Employee"/>
+				  <xs:element minOccurs="0" name="storeId" type="cs:StoreId"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:simpleType name="Message">
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+		    </xs:simpleType>
+			
+			<xs:complexType name="Messages">
+				<xs:sequence>
+					<xs:element name="messages" type="cs:Message" minOccurs="0" nillable="true" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="Items">
+				<xs:sequence>
+					<xs:element name="items" type="cs:Item" minOccurs="0" nillable="true" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>  
+			
+			<!-- <xs:complexType name="AuthenticateRequest">
+				<xs:sequence>
+				  <xs:element name="loginDetails" type="cs:LoginDetails"/>
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="AuthenticateResponse">
+				<xs:sequence>
+				  <xs:element name="loginDetails" type="cs:LoginDetails"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType> -->
+			
+			<xs:complexType name="CreateItemRequest">
+				<xs:sequence>
+				  <xs:element name="item" type="cs:Item"/>
+				  <!-- <xs:element name="storeId" type="cs:StoreId"/> -->
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="CreateItemResponse">
+				<xs:sequence>
+				  <xs:element name="item" type="cs:Item"/>
+				  <!-- <xs:element name="storeId" type="cs:StoreId"/> -->
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="GetItemRequest">
+				<xs:sequence>
+				  <xs:element name="item" type="cs:Item"/>
+				  <!-- <xs:element name="storeId" type="cs:StoreId"/> -->
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="GetItemResponse">
+				<xs:sequence>
+				  <xs:element name="item" type="cs:Item"/>
+				  <!-- <xs:element name="storeId" type="cs:StoreId"/> -->
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="GetItemsRequest">
+				<xs:sequence>
+				  <xs:element name="item" type="cs:Item"/>
+				  <!-- <xs:element name="storeId" type="cs:StoreId"/> -->
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="GetItemsResponse">
+				<xs:sequence>
+				  <xs:element name="items" type="cs:Items"/>
+				  <!-- <xs:element name="storeId" type="cs:StoreId"/> -->
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>			
+			</xs:complexType>
+			
+			<xs:complexType name="UpdateItemRequest">
+				<xs:sequence>
+				  <xs:element name="item" type="cs:Item"/>
+				  <!-- <xs:element name="storeId" type="cs:StoreId"/> -->
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="UpdateItemResponse">
+				<xs:sequence>
+				  <xs:element name="item" type="cs:Item"/>
+				  <!-- <xs:element name="storeId" type="cs:StoreId"/> -->
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="DeleteItemRequest">
+				<xs:sequence>
+				  <xs:element name="item" type="cs:Item"/>
+				  <!-- <xs:element name="storeId" type="cs:StoreId"/> -->
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="DeleteItemResponse">
+				<xs:sequence>
+				  <xs:element name="item" type="cs:Item"/>
+				  <!-- <xs:element name="storeId" type="cs:StoreId"/> -->
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<!-- RAJIV ENDS -->
+			
+			<!-- RAJU BEGINS -->
+			
+			<xs:simpleType name="CardNumber">
+				<xs:restriction base="xs:int">
+				</xs:restriction>
+		    </xs:simpleType>
+		    
+		    <xs:simpleType name="CustomerName">
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+		    </xs:simpleType>
+		    
+		    <xs:simpleType name="Points">
+				<xs:restriction base="xs:int">
+				</xs:restriction>
+		    </xs:simpleType>
+		    
+			<xs:simpleType name="BillId">
+				<xs:restriction base="xs:int">
+				</xs:restriction>
+		    </xs:simpleType>
+			
+			
+			<xs:simpleType name="DiscountAvailed">
+				<xs:restriction base="xs:decimal">
+				</xs:restriction>
+		    </xs:simpleType>
+		    
+		    <xs:simpleType name="BillAmount">
+				<xs:restriction base="xs:decimal">
+				</xs:restriction>
+		    </xs:simpleType>
+			
+			
+			<xs:complexType name="BillItems">
+			   <xs:sequence>
+			       <xs:element name="billItems" type="cs:Item" minOccurs="0" nillable="true" maxOccurs="unbounded"/>
+ 			   </xs:sequence>
+			</xs:complexType>  
+			
+			<xs:complexType name="CustomerCard">
+				<xs:sequence>
+				  <xs:element minOccurs="0" name="cardNumber" type="cs:CardNumber"/>
+				  <xs:element minOccurs="0" name="customerName" type="cs:CustomerName"/>
+				  <xs:element minOccurs="0" name="points" type="cs:Points"/>
+				  <xs:element minOccurs="0" name="storeId" type="cs:StoreId"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:simpleType name="BillDate">
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+		    </xs:simpleType>
+			
+			<xs:complexType name="Bill">
+				<xs:sequence>
+				  <xs:element minOccurs="0" name="billId" type="cs:BillId"/>
+				  <xs:element minOccurs="0" name="billItems" type="cs:BillItems"/>
+				  <xs:element minOccurs="0" name="discountAvailed" type="cs:DiscountAvailed"/>
+				  <xs:element minOccurs="0" name="billAmount" type="cs:BillAmount"/>
+				  <xs:element minOccurs="0" name="oldBillRef" type="cs:Bill"/>
+				  <xs:element minOccurs="0" name="billDate" type="cs:BillDate"/>
+				  <xs:element minOccurs="0" name="customerCard" type="cs:CustomerCard"/>
+				  <xs:element minOccurs="0" name="storeId" type="cs:StoreId"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			
+			<xs:complexType name="GetCardDetailsRequest">
+				<xs:sequence>
+				  <xs:element name="customerCard" type="cs:CustomerCard"/>
+				</xs:sequence>
+			</xs:complexType>
+			 
+			 <xs:complexType name="GetCardDetailsResponse">
+				<xs:sequence>
+				  <xs:element name="customerCard" type="cs:CustomerCard"/>
+				   <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="UpdateCardDetailsRequest">
+				<xs:sequence>
+				  <xs:element name="customerCard" type="cs:CustomerCard"/>
+				</xs:sequence>
+			</xs:complexType>
+			  
+			  <xs:complexType name="UpdateCardDetailsResponse">
+				<xs:sequence>
+				  <xs:element name="customerCard" type="cs:CustomerCard"/>
+				   <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			  
+			  <xs:complexType name="GetExistingBillRequest">
+				<xs:sequence>
+				  <xs:element name="bill" type="cs:Bill"/>
+				</xs:sequence>
+			</xs:complexType>
+			  
+			  <xs:complexType name="GetExistingBillResponse">
+				<xs:sequence>
+				  <xs:element name="bill" type="cs:Bill"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			  
+			<xs:complexType name="CreateNewBillRequest">
+				<xs:sequence>
+				  <xs:element name="bill" type="cs:Bill"/>
+				</xs:sequence>
+			</xs:complexType>  
+			  
+			  <xs:complexType name="CreateNewBillResponse">
+				<xs:sequence>
+				  <xs:element name="bill" type="cs:Bill"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<!-- RAJU ENDS -->
+			
+			<!-- LAVANYA BEGINS -->
+			<xs:complexType name="CreateBillRequest">
+				<xs:sequence>
+				  <xs:element name="bill" type="cs:Bill"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="CreateBillResponse">
+				<xs:sequence>
+				  <xs:element name="bill" type="cs:Bill"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="CreateCustomerCardRequest">
+				<xs:sequence>
+				  <xs:element name="customerCard" type="cs:CustomerCard"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="CreateCustomerCardResponse">
+				<xs:sequence>
+				  <xs:element name="customerCard" type="cs:CustomerCard"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="UpdateCustomerCardRequest">
+				<xs:sequence>
+				  <xs:element name="customerCard" type="cs:CustomerCard"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="UpdateCustomerCardResponse">
+				<xs:sequence>
+				  <xs:element name="customerCard" type="cs:CustomerCard"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="SearchBillItemRequest">
+				<xs:sequence>
+				  <xs:element name="billItem" type="cs:Item"/>
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="SearchBillItemResponse">
+				<xs:sequence>
+				  <xs:element name="billItems" type="cs:Item" minOccurs="0" nillable="true" maxOccurs="unbounded"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<!-- LAVANYA ENDS -->
+			
+			<!-- BINDHU BEGINS -->
+			<xs:simpleType name="PromotionId">
+				<xs:restriction base="xs:int">
+				</xs:restriction>
+		    </xs:simpleType>
+			  
+			<xs:simpleType name="PromotionName">
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+		    </xs:simpleType>
+		    
+		    <xs:simpleType name="PromotionDiscount">
+				<xs:restriction base="xs:decimal">
+				</xs:restriction>
+		    </xs:simpleType>
+		    
+		    <xs:simpleType name="ClearanceId">
+				<xs:restriction base="xs:int">
+				</xs:restriction>
+		    </xs:simpleType>
+			  
+			<xs:simpleType name="ClearanceName">
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+		    </xs:simpleType>
+		    
+		    <xs:simpleType name="ClearanceDiscount">
+				<xs:restriction base="xs:decimal">
+				</xs:restriction>
+		    </xs:simpleType>
+			
+			<xs:complexType name="Promotion">
+				<xs:sequence>
+				  <xs:element minOccurs="0" name="id" type="cs:PromotionId"/>
+				  <xs:element minOccurs="0" name="itemid" type="cs:ItemId"/>
+				  <xs:element minOccurs="0" name="discount" type="cs:PromotionDiscount"/>
+				  <xs:element name="storeId" type="cs:StoreId"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="Clearance">
+				<xs:sequence>
+				  <xs:element minOccurs="0" name="id" type="cs:ClearanceId"/>
+				  <xs:element minOccurs="0" name="name" type="cs:ClearanceName"/>
+				  <xs:element minOccurs="0" name="discount" type="cs:ClearanceDiscount"/>
+				  <xs:element minOccurs="0" maxOccurs="unbounded" name="items" type="cs:Item" nillable="true"/>
+				  <xs:element name="storeId" type="cs:StoreId"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="AddClearanceRequest">
+				<xs:sequence>
+				  <xs:element name="clearance" type="cs:Clearance"/>
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="AddClearanceResponse">
+				<xs:sequence>
+				  <xs:element name="clearance" type="cs:Clearance"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="SearchClearanceItemRequest">
+				<xs:sequence>
+				  <xs:element name="item" type="cs:Item"/>
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="SearchClearanceItemResponse">
+				<xs:sequence>
+				  <xs:element name="clearance" type="cs:Clearance"/>
+				  <xs:element minOccurs="0" maxOccurs="unbounded" name="items" type="cs:Item" nillable="true"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<!-- <xs:complexType name="GetClearanceRequest">
+				<xs:sequence>
+				  <xs:element name="clearance" type="cs:Clearance"/>
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="GetClearanceResponse">
+				<xs:sequence>
+				  <xs:element name="clearance" type="cs:Clearance"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType> -->
+			
+			<xs:complexType name="UpdateClearanceRequest">
+				<xs:sequence>
+				  <xs:element name="clearance" type="cs:Clearance"/>
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="UpdateClearanceResponse">
+				<xs:sequence>
+				  <xs:element name="clearance" type="cs:Clearance"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="RemoveClearanceRequest">
+				<xs:sequence>
+				  <xs:element name="clearance" type="cs:Clearance"/>
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="RemoveClearanceResponse">
+				<xs:sequence>
+				  <xs:element name="clearance" type="cs:Clearance"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="GetClearanceForItemRequest">
+				<xs:sequence>
+				  <xs:element name="item" type="cs:Item"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="GetClearanceForItemResponse">
+				<xs:sequence>
+				  <xs:element name="item" type="cs:Item"/>	
+				  <xs:element name="clearance" type="cs:Clearance"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="AddPromotionRequest">
+				<xs:sequence>
+				  <xs:element name="promotion" type="cs:Promotion"/>
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="AddPromotionResponse">
+				<xs:sequence>
+				  <xs:element name="promotion" type="cs:Promotion"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="SearchPromotionItemRequest">
+				<xs:sequence>
+				  <xs:element name="item" type="cs:Item"/>
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="SearchPromotionItemResponse">
+				<xs:sequence>
+				  <xs:element minOccurs="0" maxOccurs="unbounded" name="items" type="cs:Item" nillable="true"/>
+				  <xs:element minOccurs="0" maxOccurs="unbounded" name="promotion" type="cs:Promotion" nillable="true"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<!-- <xs:complexType name="GetPromotionRequest">
+				<xs:sequence>
+				  <xs:element name="promotion" type="cs:Promotion"/>
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="GetPromotionResponse">
+				<xs:sequence>
+				  <xs:element name="promotion" type="cs:Promotion"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType> -->
+			
+			
+			
+			<xs:complexType name="UpdatePromotionRequest">
+				<xs:sequence>
+				  <xs:element name="promotion" type="cs:Promotion"/>
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="UpdatePromotionResponse">
+				<xs:sequence>
+				  <xs:element name="promotion" type="cs:Promotion"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			
+			
+			<xs:complexType name="RemovePromotionRequest">
+				<xs:sequence>
+				  <xs:element name="promotion" type="cs:Promotion"/>
+				</xs:sequence>
+			</xs:complexType>
+				
+			<xs:complexType name="RemovePromotionResponse">
+				<xs:sequence>
+				  <xs:element name="promotion" type="cs:Promotion"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="GetPromotionForItemRequest">
+				<xs:sequence>
+				  <xs:element name="item" type="cs:Item"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="GetPromotionForItemResponse">
+				<xs:sequence>
+				  <xs:element name="item" type="cs:Item"/>	
+				  <xs:element name="promotion" type="cs:Promotion"/>
+				  <xs:element name="validationMessages" type="cs:Messages"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<!-- BINDHU ENDS -->
+			
+			<!-- Bijesh Start -->
+		    <xs:simpleType name="StoreName">
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+		    </xs:simpleType>
+		    <xs:simpleType name="StoreHead">
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+		    </xs:simpleType>
+		    <xs:simpleType name="StoreLocation">
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+		    </xs:simpleType>
+		     <xs:simpleType name="StoreDB">
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+		    </xs:simpleType>
+		    
+		    <xs:simpleType name="EmployeeDesignation">
+		    	<xs:restriction base="xs:string">
+		    	</xs:restriction>
+		    </xs:simpleType>
+		    <xs:simpleType name="EmployeeAddress">
+		    	<xs:restriction base="xs:string">
+		    	</xs:restriction>
+		    </xs:simpleType>
+		    <xs:simpleType name="DepartmentHead">
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+		    </xs:simpleType>
+		      <xs:simpleType name="IsDepartmentHead">
+				<xs:restriction base="xs:boolean">
+				</xs:restriction>
+		    </xs:simpleType>
+		    <xs:simpleType name="IsStoretHead">
+				<xs:restriction base="xs:boolean">
+				</xs:restriction>
+		    </xs:simpleType>		
+			<xs:complexType name="Store">
+				<xs:sequence>
+				  <xs:element minOccurs="0" name="location" type="cs:StoreLocation"/>
+				  <xs:element minOccurs="0" name="storeName" type="cs:StoreName"/>
+				  <xs:element minOccurs="0" name="storeId" type="cs:StoreId"/>
+				   <xs:element minOccurs="0" name="storeHead" type="cs:StoreHead"/>
+				   <xs:element minOccurs="0" name="storeDB" type="cs:StoreDB"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="StoreDetails">
+				<xs:sequence>
+					<xs:element name="storeDetails" type="cs:Store" minOccurs="0" nillable="true" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="EmployeeDetails">
+				<xs:sequence>
+					<xs:element name="employeeDetails" type="cs:Employee" minOccurs="0" nillable="true" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="DepartmentDetails">
+				<xs:sequence>
+					<xs:element name="departmentDetails" type="cs:Department" minOccurs="0" nillable="true" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="addStoreRequest">
+				<xs:complexType>
+					<xs:sequence>
+						 <xs:element name="store" type="cs:Store"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="addStoreResponse">
+				<xs:complexType>
+					<xs:sequence>
+				 		<xs:element name="validationMessages" type="cs:Messages"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="updateStoreRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="store" type="cs:Store"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="updateStoreResponse">
+				<xs:complexType>
+					<xs:sequence>
+				 		<xs:element name="validationMessages" type="cs:Messages"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="viewStoreListRequest">
+				<xs:complexType>
+					<xs:sequence>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="viewStoreListResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="storeDetails" type="cs:StoreDetails"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="addEmployeeRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="employee" type="cs:Employee"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="addEmployeeResponse">
+				<xs:complexType>
+					<xs:sequence>
+				 		<xs:element name="validationMessages" type="cs:Messages"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="updateEmployeeRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="employee" type="cs:Employee"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="updateEmployeeResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="employee" type="cs:Employee"/>
+				 		<xs:element name="validationMessages" type="cs:Messages"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchEmployeeRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="employee" type="cs:Employee"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchEmployeeResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="employee" type="cs:Employee"/>
+				 		<xs:element name="validationMessages" type="cs:Messages"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="viewEmployeeRequest">
+				<xs:complexType>
+					<xs:sequence>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="viewEmployeeResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="employeeDetails" type="cs:EmployeeDetails"/>
+				 		<xs:element name="validationMessages" type="cs:Messages"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="deleteEmployeeRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="employee" type="cs:Employee"/>
+				 		<xs:element name="validationMessages" type="cs:Messages"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="deleteEmployeeResponse">
+				<xs:complexType>
+					<xs:sequence>
+				 		<xs:element name="validationMessages" type="cs:Messages"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="addDepartmentRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="department" type="cs:Department"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="addDepartmentResponse">
+				<xs:complexType>
+					<xs:sequence>
+				 		<xs:element name="validationMessages" type="cs:Messages"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="editDepartmentRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="department" type="cs:Department"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="editDepartmentResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="department" type="cs:Department"/>
+				 		<xs:element name="validationMessages" type="cs:Messages"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="removeDepartmentRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="department" type="cs:Department"/>
+				 		<xs:element name="validationMessages" type="cs:Messages"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="removeDepartmentResponse">
+				<xs:complexType>
+					<xs:sequence>
+				 		<xs:element name="validationMessages" type="cs:Messages"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="viewDepartmentListRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="store" type="cs:Store"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="viewDepartmentListResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="departmentDetails" type="cs:DepartmentDetails"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LoginRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="employee" type="cs:Employee"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LoginResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="employee" type="cs:Employee"/>
+						<xs:element name="validationMessages" type="cs:Messages"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<!-- Bijesh Ends -->  
+</xs:schema>

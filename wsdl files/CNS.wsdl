@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:cs="http://service.nrscm.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CNSServiceInterface"
+	targetNamespace="http://service.nrscm.com/">
+	<wsdl:types>
+		<xs:schema targetNamespace="http://service.nrscm.com/">
+			<xs:include schemaLocation="common.xsd" /> 
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="addStoreRequestMessage">
+		<wsdl:part element="cs:addStoreRequest" name="addStoreRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="addStoreResponseMessage">
+		<wsdl:part element="cs:addStoreResponse" name="addStoreResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="viewStoreListRequestMessage">
+		<wsdl:part element="cs:viewStoreListRequest" name="viewStoreListRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="viewStoreListResponseMessage">
+		<wsdl:part element="cs:viewStoreListResponse" name="viewStoreListResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="updateStoreRequestMessage">
+		<wsdl:part element="cs:updateStoreRequest" name="updateStoreRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="updateStoreResponseMessage">
+		<wsdl:part element="cs:updateStoreResponse" name="updateStoreResponseMessage" />
+	</wsdl:message>	
+	<wsdl:message name="addEmployeeRequestMessage">
+		<wsdl:part element="cs:addEmployeeRequest" name="addEmployeeRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="addEmployeeResponseMessage">
+		<wsdl:part element="cs:addEmployeeResponse" name="addEmployeeResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="updateEmployeeRequestMessage">
+		<wsdl:part element="cs:updateEmployeeRequest" name="updateEmployeeRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="updateEmployeeResponseMessage">
+		<wsdl:part element="cs:updateEmployeeResponse" name="updateEmployeeResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="searchEmployeeRequestMessage">
+		<wsdl:part element="cs:searchEmployeeRequest" name="searchEmployeeRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="searchEmployeeResponseMessage">
+		<wsdl:part element="cs:searchEmployeeResponse" name="searchEmployeeResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="viewEmployeeRequestMessage">
+		<wsdl:part element="cs:viewEmployeeRequest" name="viewEmployeeRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="viewEmployeeResponseMessage">
+		<wsdl:part element="cs:viewEmployeeResponse" name="viewEmployeeResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="deleteEmployeeRequestMessage">
+		<wsdl:part element="cs:deleteEmployeeRequest" name="deleteEmployeeRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="deleteEmployeeResponseMessage">
+		<wsdl:part element="cs:deleteEmployeeResponse" name="deleteEmployeeResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="addDepartmentRequestMessage">
+		<wsdl:part element="cs:addDepartmentRequest" name="addDepartmentRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="addDepartmentResponseMessage">
+		<wsdl:part element="cs:addDepartmentResponse" name="addDepartmentResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="editDepartmentRequestMessage">
+		<wsdl:part element="cs:editDepartmentRequest" name="editDepartmentRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="editDepartmentResponseMessage">
+		<wsdl:part element="cs:editDepartmentResponse" name="editDepartmentResponseMessage" />
+	</wsdl:message>
+		<wsdl:message name="viewDepartmentListRequestMessage">
+		<wsdl:part element="cs:viewDepartmentListRequest" name="viewDepartmentListRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="viewDepartmentListResponseMessage">
+		<wsdl:part element="cs:viewDepartmentListResponse" name="viewDepartmentListResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="removeDepartmentRequestMessage">
+		<wsdl:part element="cs:removeDepartmentRequest" name="removeDepartmentRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="removeDepartmentResponseMessage">
+		<wsdl:part element="cs:removeDepartmentResponse" name="removeDepartmentResponseMessage" />
+	</wsdl:message>
+	<wsdl:message name="loginRequestMessage">
+		<wsdl:part element="cs:LoginRequest" name="loginRequestMessage" />
+	</wsdl:message>
+	<wsdl:message name="loginResponseMessage">
+		<wsdl:part element="cs:LoginResponse" name="loginResponseMessage" />
+	</wsdl:message>
+	
+
+
+
+	<wsdl:portType name="CNSServiceInterface">
+		
+		<wsdl:operation name="addStoreDetails">
+			<wsdl:input name="addStoreRequestMessage" message="cs:addStoreRequestMessage" />
+			<wsdl:output name="addStoreResponseMessage" message="cs:addStoreResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="updateStore">
+			<wsdl:input name="updateStoreRequestMessage" message="cs:updateStoreRequestMessage" />
+			<wsdl:output name="updateStoreResponseMessage" message="cs:updateStoreResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="viewStoreList">
+			<wsdl:input name="viewStoreListRequestMessage" message="cs:viewStoreListRequestMessage" />
+			<wsdl:output name="viewStoreListResponseMessage" message="cs:viewStoreListResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="addEmployee">
+			<wsdl:input name="addEmployeeRequestMessage" message="cs:addEmployeeRequestMessage" />
+			<wsdl:output name="addEmployeeResponseMessage" message="cs:addEmployeeResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="updateEmployee">
+			<wsdl:input name="updateEmployeeRequestMessage" message="cs:updateEmployeeRequestMessage" />
+			<wsdl:output name="updateEmployeeResponseMessage" message="cs:updateEmployeeResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="searchEmployee">
+			<wsdl:input name="searchEmployeeRequestMessage" message="cs:searchEmployeeRequestMessage" />
+			<wsdl:output name="searchEmployeeResponseMessage" message="cs:searchEmployeeResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="viewEmployee">
+			<wsdl:input name="viewEmployeeRequestMessage" message="cs:viewEmployeeRequestMessage" />
+			<wsdl:output name="viewEmployeeResponseMessage" message="cs:viewEmployeeResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="deleteEmployee">
+			<wsdl:input name="deleteEmployeeRequestMessage" message="cs:deleteEmployeeRequestMessage" />
+			<wsdl:output name="deleteEmployeeResponseMessage" message="cs:deleteEmployeeResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="addDepartment">
+			<wsdl:input name="addDepartmentRequestMessage" message="cs:addDepartmentRequestMessage" />
+			<wsdl:output name="addDepartmentResponseMessage" message="cs:addDepartmentResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="editDepartment">
+			<wsdl:input name="editDepartmentRequestMessage" message="cs:editDepartmentRequestMessage" />
+			<wsdl:output name="editDepartmentResponseMessage" message="cs:editDepartmentResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="removeDepartment">
+			<wsdl:input name="removeDepartmentRequestMessage" message="cs:removeDepartmentRequestMessage" />
+			<wsdl:output name="removeDepartmentResponseMessage" message="cs:removeDepartmentResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="viewDepartmentList">
+			<wsdl:input name="viewDepartmentListRequestMessage" message="cs:viewDepartmentListRequestMessage" />
+			<wsdl:output name="viewDepartmentListResponseMessage" message="cs:viewDepartmentListResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="login">
+			<wsdl:input name="loginRequestMessage" message="cs:loginRequestMessage" />
+			<wsdl:output name="loginResponseMessage" message="cs:loginResponseMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="CNSServiceSOAPBinding" type="cs:CNSServiceInterface">
+		<soap:binding style="rpc"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		
+		<wsdl:operation name="addEmployee">
+			<soap:operation soapAction="" style="rpc" />
+			<wsdl:input name="addEmployeeRequestMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:input>
+			<wsdl:output name="addEmployeeResponseMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="updateEmployee">
+			<soap:operation soapAction="" style="rpc" />
+			<wsdl:input name="updateEmployeeRequestMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:input>
+			<wsdl:output name="updateEmployeeResponseMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="deleteEmployee">
+			<soap:operation soapAction="" style="rpc" />
+			<wsdl:input name="deleteEmployeeRequestMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:input>
+			<wsdl:output name="deleteEmployeeResponseMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchEmployee">
+			<soap:operation soapAction="" style="rpc" />
+			<wsdl:input name="searchEmployeeRequestMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchEmployeeResponseMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="viewEmployee">
+			<soap:operation soapAction="" style="rpc" />
+			<wsdl:input name="viewEmployeeRequestMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:input>
+			<wsdl:output name="viewEmployeeResponseMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="addDepartment">
+			<soap:operation soapAction="" style="rpc" />
+			<wsdl:input name="addDepartmentRequestMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:input>
+			<wsdl:output name="addDepartmentResponseMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="editDepartment">
+			<soap:operation soapAction="" style="rpc" />
+			<wsdl:input name="editDepartmentRequestMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:input>
+			<wsdl:output name="editDepartmentResponseMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="removeDepartment">
+			<soap:operation soapAction="" style="rpc" />
+			<wsdl:input name="removeDepartmentRequestMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:input>
+			<wsdl:output name="removeDepartmentResponseMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="viewDepartmentList">
+			<soap:operation soapAction="" style="rpc" />
+			<wsdl:input name="viewDepartmentListRequestMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:input>
+			<wsdl:output name="viewDepartmentListResponseMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="addStoreDetails">
+			<soap:operation soapAction="" style="rpc" />
+			<wsdl:input name="addStoreRequestMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:input>
+			<wsdl:output name="addStoreResponseMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="updateStore">
+			<soap:operation soapAction="" style="rpc" />
+			<wsdl:input name="updateStoreRequestMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:input>
+			<wsdl:output name="updateStoreResponseMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="viewStoreList">
+			<soap:operation soapAction="" style="rpc" />
+			<wsdl:input name="viewStoreListRequestMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:input>
+			<wsdl:output name="viewStoreListResponseMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="login">
+			<soap:operation soapAction="" style="rpc" />
+			<wsdl:input name="loginRequestMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:input>
+			<wsdl:output name="loginResponseMessage">
+				<soap:body namespace="http://service.nrscm.com/" use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="CNSServiceClient">
+		<wsdl:port binding="cs:CNSServiceSOAPBinding" name="CNSServicePort">
+			<soap:address location="http://localhost:8083/nsrcmService/CNSServiceClient" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
